@@ -8,6 +8,8 @@ provider:
   profile: serverlessUser
   region: us-east-1
   stage: dev
+  httpApi:
+    cors: true
 
 plugins:
   - serverless-s3-sync
@@ -20,6 +22,12 @@ custom:
 functions:
   hello:
     handler: handler.hello
+  getUser:
+    handler: lambdas/getUser.handler
+    events:
+      - httpApi:
+          method: GET
+          path: /get-user/{id}
 
 resources:
   Resources:
