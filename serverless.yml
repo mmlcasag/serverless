@@ -13,6 +13,10 @@ provider:
 
 plugins:
   - serverless-s3-sync
+  - serverless-webpack
+
+package:
+  individually: true
 
 custom:
   s3Sync:
@@ -21,7 +25,7 @@ custom:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: lambdas/hello.handler
   getUser:
     handler: lambdas/getUser.handler
     events:

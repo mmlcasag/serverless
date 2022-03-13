@@ -2,7 +2,7 @@
 
 const Decimal = require('decimal.js');
 
-module.exports.hello = async (event) => {
+module.exports.handler = async (event) => {
   
   if (event.valorInicial && event.precoSugerido) {
     const divisao = new Decimal(event.valorInicial).dividedBy(event.precoSugerido).toNumber();
